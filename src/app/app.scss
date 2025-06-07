@@ -1,0 +1,10 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
+
+.main {
+    display: flex;
+    height: 100vh;
+    gap: 2rem;
+    section {
+        flex: 1;
+    }
+}
