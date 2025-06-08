@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { MessageList } from './components/message-list/message-list';
-import { MessageForm } from "./components/message-form/message-form";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [MessageList, MessageForm],
+  imports: [RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

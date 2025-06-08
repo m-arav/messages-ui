@@ -1,11 +1,10 @@
-<!-- Success Message -->
 @if (successMessage()) {
 <div class="help is-success">
   {{ successMessage() }}
 </div>
 }
 
-<h1 class="title">New Messsage</h1>
+<h1 class="title">New Message</h1>
 
 <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
 
@@ -52,7 +51,6 @@
   </div>
 </form>
 
-<!-- Error Message -->
 @if (errorMessage()) {
 <div>
   <p class="help is-danger"> {{ errorMessage() }} </p>
