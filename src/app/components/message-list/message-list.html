@@ -19,6 +19,9 @@
             <p>To: {{ message.to }}</p>
             <p>Body: {{ message.body }}</p>
             <time>Sent at: {{ message.created_at | date:'medium' }}</time>
+            @if (message.status) {
+            <p>status: {{ message.status }}</p>
+            }
         </div>
     </div>
 </div>
