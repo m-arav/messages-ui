@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 export class Login {
   email = '';
   password = '';
+  isSubmitting = false;
 
   constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) {}
 
@@ -26,6 +27,7 @@ export class Login {
   }
 
   onSubmit() {
+    this.isSubmitting = true;
     this.auth.login(this.email, this.password).subscribe({
       next: () => this.router.navigate(['/home']),
       error: () => alert('Login failed')

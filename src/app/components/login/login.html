@@ -21,8 +21,8 @@
             </div>
 
             <div class="field">
-              <button type="submit" class="button is-primary is-fullwidth">
-                Login
+              <button type="submit" [disabled]="isSubmitting" class="button is-primary is-fullwidth">
+                {{ isSubmitting ? 'Logging in...' : 'Login' }}
               </button>
             </div>
             <p class="has-text-centered mt-4">
