@@ -20,7 +20,7 @@ export class MessageForm {
 
   messageForm: FormGroup = this.fb.group({
     to: ['', [Validators.required, Validators.pattern(/^\+?[1-9]\d{1,14}$/)]],
-    body: ['', [Validators.required, Validators.minLength(1)]]
+    body: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(250)]]
   });
 
   onSubmit(): void {

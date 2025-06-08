@@ -27,13 +27,14 @@
   <div class="field">
     <label class="label" for="body">Message :</label>
     <div class="control">
-      <textarea id="body" class="textarea" formControlName="body"></textarea>
+      <textarea id="body" maxlength="250" class="textarea" formControlName="body"></textarea>
     </div>
     @if (messageForm.get('body')?.invalid && messageForm.get('body')?.touched) {
     @if (messageForm.get('body')?.errors?.['required']) {
     <p class="help is-danger">Message body is required</p>
     }
     }
+    <p>{{ 250 - (messageForm.get('body')?.value?.length || 0) }} characters remaining</p>
   </div>
 
   <div class="field is-grouped">
