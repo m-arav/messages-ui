@@ -11,11 +11,14 @@
   <div class="field">
     <label class="label" for="to">To :</label>
     <div class="control">
-      <input class="input" type="tel" id="to" formControlName="to" />
+      <input class="input" type="tel" id="to" formControlName="to" placeholder="Phone number" />
     </div>
     @if (messageForm.get('to')?.invalid && messageForm.get('to')?.touched) {
     @if (messageForm.get('to')?.errors?.['required']) {
     <p class="help is-danger"> Recipient is required </p>
+    }
+    @if (messageForm.get('to')?.errors?.['pattern']) {
+    <p class="help is-danger"> Phone number must be valid </p>
     }
     }
   </div>

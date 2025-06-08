@@ -19,7 +19,7 @@ export class MessageForm {
   errorMessage = signal<string>('');
 
   messageForm: FormGroup = this.fb.group({
-    to: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]],
+    to: ['', [Validators.required, Validators.pattern(/^\+?[1-9]\d{1,14}$/)]],
     body: ['', [Validators.required, Validators.minLength(1)]]
   });
 

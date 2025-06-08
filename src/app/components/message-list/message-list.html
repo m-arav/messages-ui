@@ -18,7 +18,7 @@
         <div class="content">
             <p>To: {{ message.to }}</p>
             <p>Body: {{ message.body }}</p>
-            <time>Sent at: {{ message.created_at }}</time>
+            <time>Sent at: {{ message.created_at | date:'medium' }}</time>
         </div>
     </div>
 </div>

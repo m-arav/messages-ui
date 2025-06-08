@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MessageApi } from '../../services/message-api';
 
 @Component({
   selector: 'app-message-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './message-list.html',
   styleUrl: './message-list.scss'
 })
