@@ -19,7 +19,7 @@
   </nav>
 <div class="main container">
     <section>
-        <app-message-form></app-message-form>
+        <app-message-form (submitted)="onFormSubmitted()"></app-message-form>
     </section>
     <section>
         <app-message-list></app-message-list>

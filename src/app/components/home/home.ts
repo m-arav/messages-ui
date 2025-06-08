@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../../auth';
 import { MessageList } from '../message-list/message-list';
 import { MessageForm } from "../message-form/message-form";
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './home.scss'
 })
 export class Home {
+@ViewChild(MessageList) messageList!: MessageList
 constructor(private auth: AuthService, private router: Router) {}
 
   logout() {
@@ -18,5 +19,9 @@ constructor(private auth: AuthService, private router: Router) {}
       next: () => this.router.navigate(['/login']),
       error: () => alert('Logout failed')
     });
+  }
+
+  onFormSubmitted() {
+    this.messageList.reload();
   }
 }

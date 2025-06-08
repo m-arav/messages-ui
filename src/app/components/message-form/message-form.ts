@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, Output, EventEmitter } from '@angular/core';
 import { MessageApi } from '../../services/message-api';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -9,6 +9,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   styleUrl: './message-form.scss'
 })
 export class MessageForm {
+  @Output() submitted = new EventEmitter<void>();
+
   private messageApi = inject(MessageApi);
   private fb = inject(FormBuilder);
 
@@ -31,6 +33,7 @@ export class MessageForm {
       
       this.messageApi.createMessages(formData).subscribe({
         next: (response) => {
+          this.submitted.emit();
           this.isSubmitting.set(false);
           this.successMessage.set('Message sent successfully!');
           this.resetForm();
