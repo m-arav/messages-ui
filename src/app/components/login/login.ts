@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../auth';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -14,7 +14,16 @@ export class Login {
   email = '';
   password = '';
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) {}
+
+ ngOnInit(): void {
+      this.route.queryParams.subscribe(params => {
+      const emailFromUrl = params['email'];
+      if (emailFromUrl) {
+        this.email =  emailFromUrl
+      }
+    });
+  }
 
   onSubmit() {
     this.auth.login(this.email, this.password).subscribe({

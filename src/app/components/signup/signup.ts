@@ -12,12 +12,14 @@ import { AuthService } from '../../auth';
 export class Signup {
   email = '';
   password = '';
+  isSubmitting = false
 
   constructor(private auth: AuthService, private router: Router) { }
 
   onSubmit() {
+    this.isSubmitting = true;
     this.auth.signup(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/login']),
+      next: () => this.router.navigate(['/login'], { queryParams: { email: this.email }}),
       error: () => alert('Signup failed')
     });
   }
