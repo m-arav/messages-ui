@@ -38,4 +38,14 @@ export class MessageList {
   reload(): void {
     this.fetchMessages();
   }
+
+  statusClass(status: string): string {
+    switch (status) {
+      case 'delivered': return 'is-success';
+      case 'pending': return 'is-warning';
+      case 'failed': return 'is-danger';
+      case 'queued': return 'is-info';
+      default: return '';
+    }
+  }
 }

@@ -18,10 +18,8 @@
         <div class="content">
             <p>To: {{ message.to }}</p>
             <p>Body: {{ message.body }}</p>
+            <p>status: <span class="tag" [ngClass]="statusClass(message.status)">{{ message.status }}</span></p>
             <time>Sent at: {{ message.created_at | date:'medium' }}</time>
-            @if (message.status) {
-            <p>status: {{ message.status }}</p>
-            }
         </div>
     </div>
 </div>
