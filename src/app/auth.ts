@@ -2,10 +2,11 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = environment.apiUrl;
   token = signal<string | null>(localStorage.getItem('token'));
 
   constructor(private http: HttpClient) {}
